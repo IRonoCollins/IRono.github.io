@@ -1,207 +1,1127 @@
-<!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>IRono | The Analyst</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collins Rono · Data Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ----- RESET & BASE (DARK MODE) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d1117;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #238636;
+      border-radius: 12px;
+    }
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+    /* ----- CONTAINER ----- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 1rem;
+    }
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>IRono
-						Portfolio</h1>
-						<p>Data scientist well versed in SQL, Python, Tableau, Power BI, Excel, Machine learning and AWS 
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+    /* ----- HERO (centered, with interactive elements) ----- */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 0 2.8rem;
+      border-radius: 48px;
+      background: linear-gradient(145deg, #161b22, #0d1117);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #30363d;
+      transition: all 0.3s;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(35, 134, 54, 0.04), transparent 70%);
+      pointer-events: none;
+    }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">MY PROJECTS</a>
-					</header>
+    /* AVATAR WITH WHITE BACKGROUND & GREEN GLOW */
+    .hero-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(35, 134, 54, 0.3), 0 12px 40px rgba(0, 0, 0, 0.4);
+      border: 4px solid #238636;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #ffffff;
+      flex-shrink: 0;
+    }
+    .hero-avatar:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 50px rgba(35, 134, 54, 0.5), 0 12px 50px rgba(35, 134, 54, 0.2);
+      border-color: #2ea043;
+    }
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Projects</a></li>
-						</ul>
-						<ul class="icons">
-						
-							<li><a href="https://www.linkedin.com/in/collins-rono/" class="icon brands fa-linkedin"><span class="label">linkedin</span></a></li>
-							<li><a href="https://github.com/IRonoCollins" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #f0f6fc;
+      margin-bottom: 0.2rem;
+      position: relative;
+      z-index: 2;
+    }
+    .hero .role {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #8b949e;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.3rem 1.8rem;
+      border-radius: 60px;
+      display: inline-block;
+      margin-bottom: 0.3rem;
+      border: 1px solid #30363d;
+      transition: all 0.3s;
+    }
+    .hero .role:hover {
+      border-color: #238636;
+      color: #f0f6fc;
+    }
+    .hero .tagline {
+      font-size: 1rem;
+      color: #8b949e;
+      max-width: 500px;
+      margin: 0.4rem auto 1.8rem;
+      font-weight: 300;
+    }
 
-				<!-- Main -->
-					<div id="main">
+    /* ----- NAVIGATION SHORTCUTS ----- */
+    .nav-shortcuts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
+      justify-content: center;
+      margin: 0.8rem 0 1.8rem;
+      position: relative;
+      z-index: 2;
+    }
+    .nav-shortcuts a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #8b949e;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      border: 1px solid #30363d;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .nav-shortcuts a:hover {
+      border-color: #238636;
+      color: #f0f6fc;
+      transform: translateY(-2px);
+      background: rgba(35, 134, 54, 0.05);
+    }
+    .nav-shortcuts a i {
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
 
-						<!-- Posts - All projects now in 2-column grid -->
-							<section class="posts">
-								<article>
-									<header>
-										<h2><a href="https://github.com/IRonoCollins/Data-cleaning-with-Mysql/blob/main/SQL%20DATA%20CLEANING%20PROJECT.sql">Layoffs Data Cleaning<br />
-										in Mysql</a></h2>
-									</header>
-									<a href="https://github.com/IRonoCollins/Data-cleaning-with-Mysql/blob/main/SQL%20DATA%20CLEANING%20PROJECT.sql" class="image fit"><img src="images/company layoffs.jpg" alt="" /></a>
-									<p>This project involves cleaning and standardizing a dataset containing information about company layoffs around the world. The goal is to remove duplicates, handle missing values, standardize text data, and ensure consistency in date formats.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/IRonoCollins/Data-cleaning-with-Mysql/blob/main/SQL%20DATA%20CLEANING%20PROJECT.sql" class="button">View Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://drive.google.com/file/d/1CUU3lKLtrZ7M40whUcSloNhCeSEQK0b9/view?usp=sharing">DSR Performance Analysis<br />
-										in Power BI</a></h2>
-									</header>
-									<a href="https://drive.google.com/file/d/1CUU3lKLtrZ7M40whUcSloNhCeSEQK0b9/view?usp=sharing" class="image fit"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Power BI Dashboard" /></a>
-									<p><strong>Direct Sales Representative Performance Analysis (SACCO)</strong> — Independently analyzed DSR performance within a SACCO to understand branch performance, identify top/low performers, and uncover growth opportunities. Built interactive Power BI dashboards visualizing branch sales, individual DSR performance, and trends over time.</p>
-									<ul class="actions special">
-										<li><a href="https://drive.google.com/file/d/1CUU3lKLtrZ7M40whUcSloNhCeSEQK0b9/view?usp=sharing" class="button">View Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										
-										<h2><a href="https://github.com/IRonoCollins/EDA-with-Mysql/blob/main/SQL%20EDA%20PROJECT.sql">Layoffs Exploratory Data Analysis<br />
-										in Mysql</a></h2>
-									</header>
-									<a href="https://github.com/IRonoCollins/EDA-with-Mysql/blob/main/SQL%20EDA%20PROJECT.sql" class="image fit"><img src="images/person-computer.jpg" alt="" /></a>
-									<p>This project analyzes the layoffs dataset using SQL to uncover trends in company layoffs across industries, countries, and funding stages.It explores total layoffs, workforce reductions, and time-based trends while applying SQL formulas.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/IRonoCollins/EDA-with-Mysql/blob/main/SQL%20EDA%20PROJECT.sql" class="button">View Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										
-										<h2><a href="https://github.com/IRonoCollins/Excel-Data-Project">Bike buyers Data Project<br />
-										in Excel</a></h2>
-									</header>
-									<a href="https://github.com/IRonoCollins/Excel-Data-Project" class="image fit"><img src="images/excel.jpg" alt="" /></a>
-									<p>The Bike Buyers table records customer demographics, lifestyle, and purchasing behavior. It includes ID, Marital Status, Gender, Age, Income, Education, Occupation, Home Owner, Cars, Commute Distance, Region, and Purchased Bike. This data helps analyze factors influencing bike purchases.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/IRonoCollins/Excel-Data-Project" class="button">View Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										
-										<h2><a href="https://github.com/IRonoCollins/Power-BI-full-project/blob/main/The%20power%20bi%20full%20project.pdf">Data Visualisation project<br />
-										in Power BI</a></h2>
-									</header>
-									<a href="https://drive.google.com/file/d/16zu249mHIZrxLhwQRR9ZmRidLJ3vvGke/view?usp=sharing" class="image fit"><img src="images/Power BI.jpg" alt="" /></a>
-									<p>This project entails analyzing survey responses from data professionals to uncover career trends, salaries, job satisfaction, and industry challenges, aiding informed career decisions.</p>
-									<ul class="actions special">
-										<li><a href="https://drive.google.com/file/d/16zu249mHIZrxLhwQRR9ZmRidLJ3vvGke/view?usp=sharing" class="button">View Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										
-										<h2><a href="https://public.tableau.com/app/profile/collins.rono/viz/AIRBnBtableauproject/Dashboard1?publish=yes">Data Visualisation project<br />
-										in Tableau</a></h2>
-									</header>
-									<a href="https://public.tableau.com/app/profile/collins.rono/viz/AIRBnBtableauproject/Dashboard1?publish=yes" class="image fit"><img src="images/Tableau 2.jpg" alt="" /></a>
-									<p>This project entails analyzing Airbnb listings, reviews, and availability to uncover trends in pricing, host characteristics, and guest satisfaction, offering insights for both hosts and travelers.</p>
-									<ul class="actions special">
-										<li><a href="https://public.tableau.com/app/profile/collins.rono/viz/AIRBnBtableauproject/Dashboard1?publish=yes" class="button">View Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://github.com/IRonoCollins/Web_scraping">Web Scraping<br />
-										in Jupyter</a></h2>
-									</header>
-									<a href="https://github.com/IRonoCollins/Web_scraping" class="image fit"><img src="images/web scraping.jpg" alt="" /></a>
-									<p>This project involves web scraping a table from a website using Python and BeautifulSoup. It extracts company rankings, industries, revenue, employee counts, and headquarters locations, then processes and saves the data in a structured format for analysis.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/IRonoCollins/Web_scraping" class="button">View project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										
-										<h2><a href="https://github.com/IRonoCollins/Data-cleaning-and-EDA-using-Panda">EDA and Data cleaning <br />
-										in Panda</a></h2>
-									</header>
-									<a href="https://github.com/IRonoCollins/Data-cleaning-and-EDA-using-Panda" class="image fit"><img src="images/pandas haha.jpg" alt="" /></a>
-									<p>Explore data using Python’s pandas library! This project showcases data cleaning, exploratory data analysis (EDA), and visualization with Matplotlib and Seaborn.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/IRonoCollins/Data-cleaning-and-EDA-using-Panda" class="button">View Project</a></li>
-									</ul>
-								</article>
-							</section > 
+    .hero .btn-group {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.8rem 2.2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1);
+      border: 1.5px solid transparent;
+    }
+    .btn-primary {
+      background: #238636;
+      color: #fff;
+      border-color: #238636;
+      box-shadow: 0 8px 24px rgba(35, 134, 54, 0.2);
+    }
+    .btn-primary:hover {
+      background: #2ea043;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 34px rgba(35, 134, 54, 0.3);
+    }
+    .btn-outline {
+      border-color: #30363d;
+      color: #c9d1d9;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .btn-outline:hover {
+      border-color: #8b949e;
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-3px);
+    }
 
-						<!-- Footer -->
-							<footer>
-								<div class="pagination">
-									<!--<a href="#" class="previous">Prev</a>-->
-									<!-- Pagination -->
-								<a href="index.html" class="page active">1</a>
-								
+    /* Floating tech icons (subtle) */
+    .float-icons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .float-icons i {
+      position: absolute;
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.03);
+      animation: float-icon 10s infinite alternate ease-in-out;
+    }
+    .float-icons i:nth-child(1) { top: 10%; left: 8%; animation-delay: 0s; }
+    .float-icons i:nth-child(2) { bottom: 12%; right: 6%; animation-delay: 2s; font-size: 2.6rem; }
+    .float-icons i:nth-child(3) { top: 20%; right: 15%; animation-delay: 4s; }
+    .float-icons i:nth-child(4) { bottom: 25%; left: 12%; animation-delay: 1s; }
+    @keyframes float-icon {
+      0% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
+      100% { transform: translateY(-18px) rotate(6deg); opacity: 0.5; }
+    }
 
-									
-								</div>
-							</footer>
+    /* Spotlight effect (mouse follow) */
+    .spotlight {
+      position: fixed;
+      width: 60vw;
+      height: 60vw;
+      max-width: 700px;
+      max-height: 700px;
+      background: radial-gradient(circle, rgba(35, 134, 54, 0.04) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s;
+      opacity: 0.5;
+    }
 
-					</div>
-<!-- Footer -->
-<footer id="footer">
-		</section>
-	<section class="split contact">
-		<section class="alt">
-			<h3>Location</h3>
-			<p>Nairobi<br />
-			Kenya</p>
-		</section>
-		<section>
-			<h3>Phone</h3>
-			<p><a href="tel:+254741867703">(+254) 7418-67703</a></p>
-		</section>
-		<section>
-			<h3>Email</h3>
-			<p><a href="mailto:coloron1999@gmail.com">coloron1999@gmail.com</a></p>
-		</section>
-		<section>
-			<h3>Social</h3>
-			<ul class="icons alt">
-				<li><a href="https://www.linkedin.com/in/collins-rono/" class="icon brands fa-linkedin"><span class="label">linkedin</span></a></li>
-				<li><a href="https://github.com/IRonoCollins" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-			</ul>
-		</section>
-	</section>
-</footer>
+    /* Scroll indicator */
+    .scroll-indicator {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: #484f58;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      animation: bounce 2s infinite;
+    }
+    .scroll-indicator .line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, #238636, transparent);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; 2025</li><li>all rights reserved</li></ul>
-					</div>
+    /* ----- SECTION TITLES ----- */
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 3.2rem 0 1.6rem;
+      color: #f0f6fc;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-title i {
+      color: #8b949e;
+      font-size: 1.4rem;
+      opacity: 0.5;
+    }
+    .section-title .accent-line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, #30363d, transparent);
+      margin-left: 0.5rem;
+    }
 
-			</div>
+    /* ----- PROFILE (dark cards) ----- */
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .profile-card {
+      background: #161b22;
+      padding: 1.8rem 2rem;
+      border-radius: 28px;
+      border: 1px solid #30363d;
+      transition: all 0.3s;
+    }
+    .profile-card:hover {
+      border-color: #238636;
+      transform: translateY(-2px);
+    }
+    .profile-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .profile-card p {
+      color: #8b949e;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .profile-card .highlight {
+      color: #f0f6fc;
+      font-weight: 500;
+    }
 
+    .contact-mini {
+      background: #161b22;
+      padding: 1.8rem 2rem;
+      border-radius: 28px;
+      border: 1px solid #30363d;
+      transition: all 0.3s;
+    }
+    .contact-mini:hover {
+      border-color: #238636;
+    }
+    .contact-mini h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 1rem;
+    }
+    .contact-mini .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      color: #8b949e;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #21262d;
+      transition: 0.2s;
+    }
+    .contact-mini .contact-item:hover {
+      color: #f0f6fc;
+      padding-left: 4px;
+    }
+    .contact-mini .contact-item i {
+      width: 20px;
+      color: #8b949e;
+      opacity: 0.5;
+    }
+    .contact-mini .contact-item:last-child {
+      border-bottom: none;
+    }
 
-			</div>
+    /* ----- EDUCATION & EXPERIENCE ----- */
+    .edu-exp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin: 1.5rem 0;
+    }
+    .edu-exp-card {
+      background: #161b22;
+      padding: 1.8rem 2rem;
+      border-radius: 28px;
+      border: 1px solid #30363d;
+      transition: all 0.3s;
+    }
+    .edu-exp-card:hover {
+      border-color: #238636;
+      transform: translateY(-2px);
+    }
+    .edu-exp-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .edu-exp-card .entry {
+      margin-bottom: 1.2rem;
+      padding-left: 0.5rem;
+      border-left: 3px solid #30363d;
+      padding-left: 1rem;
+      transition: 0.3s;
+    }
+    .edu-exp-card .entry:hover {
+      border-left-color: #238636;
+    }
+    .edu-exp-card .entry:last-child {
+      margin-bottom: 0;
+    }
+    .edu-exp-card .entry .title {
+      font-weight: 600;
+      color: #f0f6fc;
+      font-size: 0.95rem;
+    }
+    .edu-exp-card .entry .org {
+      font-weight: 500;
+      color: #8b949e;
+      font-size: 0.85rem;
+    }
+    .edu-exp-card .entry .date {
+      font-size: 0.75rem;
+      color: #484f58;
+      font-weight: 400;
+      margin-top: 0.1rem;
+    }
+    .edu-exp-card .entry .desc {
+      font-size: 0.85rem;
+      color: #8b949e;
+      margin-top: 0.2rem;
+      line-height: 1.5;
+      font-weight: 300;
+    }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    /* ----- SKILLS (interactive chips) ----- */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      margin: 1.5rem 0 1rem;
+      padding: 0.2rem 0;
+    }
+    .skill-item {
+      background: #161b22;
+      border: 1px solid #30363d;
+      padding: 0.5rem 1.6rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #c9d1d9;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.25s;
+      cursor: default;
+    }
+    .skill-item i {
+      color: #8b949e;
+      font-size: 0.9rem;
+      opacity: 0.5;
+    }
+    .skill-item:hover {
+      border-color: #238636;
+      background: #21262d;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
 
-	</body>
+    /* ----- PROJECTS (expanded, interactive) ----- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .project-card {
+      background: #161b22;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid #30363d;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+      position: relative;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(35, 134, 54, 0.02), transparent 70%);
+      pointer-events: none;
+    }
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      border-color: #238636;
+    }
+    .project-card .img-wrap {
+      height: 200px;
+      overflow: hidden;
+      background: #0d1117;
+    }
+    .project-card .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.6s;
+    }
+    .project-card:hover .img-wrap img {
+      transform: scale(1.06);
+    }
+    .project-card .content {
+      padding: 1.6rem 1.8rem 1.8rem;
+      position: relative;
+      z-index: 2;
+    }
+    .project-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .project-card h3 i {
+      font-size: 0.9rem;
+      color: #8b949e;
+      opacity: 0.4;
+    }
+    .project-card p {
+      color: #8b949e;
+      font-size: 0.95rem;
+      margin: 0.6rem 0 1rem;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    .project-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .project-tools span {
+      background: #21262d;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #8b949e;
+      border: 1px solid #30363d;
+      transition: 0.2s;
+    }
+    .project-tools span:hover {
+      border-color: #238636;
+      color: #f0f6fc;
+    }
+    .card-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .card-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #8b949e;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .card-links a:hover {
+      color: #f0f6fc;
+      border-bottom-color: #238636;
+      transform: translateX(3px);
+    }
+
+    /* ----- CERTIFICATIONS ----- */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .cert-card {
+      background: #161b22;
+      padding: 1.5rem 1.8rem;
+      border-radius: 24px;
+      border: 1px solid #30363d;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .cert-card:hover {
+      border-color: #238636;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+    .cert-card i {
+      font-size: 2.2rem;
+      color: #238636;
+      opacity: 0.6;
+    }
+    .cert-card .cert-info {
+      flex: 1;
+    }
+    .cert-card .cert-info h4 {
+      font-weight: 600;
+      color: #f0f6fc;
+      font-size: 0.95rem;
+    }
+    .cert-card .cert-info p {
+      color: #8b949e;
+      font-size: 0.8rem;
+      margin-top: 0.1rem;
+    }
+    .cert-card .cert-link {
+      color: #8b949e;
+      transition: 0.2s;
+      font-size: 0.9rem;
+    }
+    .cert-card .cert-link:hover {
+      color: #f0f6fc;
+      transform: translateX(3px);
+    }
+
+    /* ----- LANGUAGES ----- */
+    .lang-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 0.5rem 0 1rem;
+    }
+    .lang-item {
+      background: #161b22;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      border: 1px solid #30363d;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #c9d1d9;
+      transition: all 0.25s;
+    }
+    .lang-item:hover {
+      border-color: #238636;
+      transform: translateY(-2px);
+    }
+    .lang-item span {
+      font-weight: 300;
+      color: #484f58;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+    }
+
+    /* ----- CONTACT (interactive) ----- */
+    .contact-section {
+      background: #161b22;
+      border-radius: 48px;
+      padding: 2.5rem 2.8rem;
+      border: 1px solid #30363d;
+      margin: 3rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s;
+    }
+    .contact-section:hover {
+      border-color: #238636;
+    }
+    .contact-section h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 0.5rem;
+    }
+    .contact-section .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+    .contact-section .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #8b949e;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    .contact-section .contact-links a:hover {
+      color: #f0f6fc;
+      transform: translateX(4px);
+    }
+    .contact-section .social-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .contact-section .social-links a {
+      font-size: 1.4rem;
+      color: #8b949e;
+      transition: all 0.25s;
+    }
+    .contact-section .social-links a:hover {
+      color: #f0f6fc;
+      transform: scale(1.1);
+    }
+    .contact-badge {
+      background: #21262d;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      border: 1px solid #30363d;
+      color: #8b949e;
+      font-weight: 400;
+      transition: all 0.3s;
+    }
+    .contact-badge:hover {
+      border-color: #238636;
+      color: #f0f6fc;
+    }
+
+    /* ----- FOOTER ----- */
+    .footer {
+      padding: 1.8rem 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #30363d;
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: #484f58;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 820px) {
+      .container { padding: 1.2rem; }
+      .hero { padding: 2rem 1.5rem; }
+      .hero h1 { font-size: 2.4rem; }
+      .profile-grid { grid-template-columns: 1fr; }
+      .edu-exp-grid { grid-template-columns: 1fr; }
+      .project-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: 1fr; }
+      .contact-section { flex-direction: column; align-items: flex-start; padding: 2rem; }
+      .spotlight { display: none; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.9rem; }
+      .hero-avatar { width: 120px; height: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Spotlight (mouse follow) -->
+  <div class="spotlight" id="spotlight"></div>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="float-icons">
+        <i class="fas fa-database"></i>
+        <i class="fas fa-chart-line"></i>
+        <i class="fas fa-code"></i>
+        <i class="fas fa-brain"></i>
+      </div>
+      <div class="hero-avatar">
+        <img src="https://i.imgur.com/hAuidEA.jpeg" alt="Collins Rono" />
+      </div>
+      <h1>Collins Rono</h1>
+      <div class="role">Data Analyst · Economics &amp; Statistics</div>
+      <p class="tagline">Turning data into decisions · Dashboard design · Business intelligence</p>
+
+      <!-- NAVIGATION SHORTCUTS -->
+      <div class="nav-shortcuts">
+        <a href="#projects"><i class="fas fa-folder"></i> Projects</a>
+        <a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a>
+        <a href="#contact"><i class="fas fa-paper-plane"></i> Contact</a>
+        <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+        <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+      </div>
+
+      <div class="btn-group">
+        <a href="#projects" class="btn btn-primary"><i class="fas fa-folder-open"></i> View Projects</a>
+        <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contact Me</a>
+      </div>
+      <div class="scroll-indicator">
+        <span>scroll</span>
+        <div class="line"></div>
+      </div>
+    </section>
+
+    <!-- PROFILE + CONTACT -->
+    <section id="profile">
+      <div class="profile-grid">
+        <div class="profile-card">
+          <h3><i class="fas fa-user" style="opacity:0.4;"></i> Profile</h3>
+          <p>
+            Data Analyst with a solid foundation in Economics and Statistics, complemented by advanced training in Data Science through ALX. Skilled in turning complex data into strategic insights using tools like <span class="highlight">Python, SQL, Power BI, and Excel</span>. I've led several data projects, including a personal initiative analyzing sales performance within a SACCO, which informed business decisions and performance improvements. Passionate about using data to guide business growth, optimize operations, and deliver measurable impact.
+          </p>
+        </div>
+        <div class="contact-mini">
+          <h3><i class="fas fa-address-card" style="opacity:0.4;"></i> Contact</h3>
+          <div class="contact-item"><i class="fas fa-phone"></i> +254 741 867 703</div>
+          <div class="contact-item"><i class="fas fa-envelope"></i> coloron1999@gmail.com</div>
+          <div class="contact-item"><i class="fas fa-map-pin"></i> Nairobi, Kenya</div>
+          <div class="contact-item"><i class="fas fa-globe"></i> My Website</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & EXPERIENCE -->
+    <section>
+      <div class="section-title">
+        <i class="fas fa-graduation-cap"></i> Education &amp; Experience
+        <span class="accent-line"></span>
+      </div>
+      <div class="edu-exp-grid">
+        <div class="edu-exp-card">
+          <h3><i class="fas fa-university" style="opacity:0.4;"></i> Education</h3>
+          <div class="entry">
+            <div class="title">Bachelor of Economics and Statistics</div>
+            <div class="org">South Eastern Kenya University</div>
+            <div class="date">2025 – 2029</div>
+            <div class="desc">Second Class Honors – Upper Division</div>
+          </div>
+          <div class="entry">
+            <div class="title">Certificate in Data Science</div>
+            <div class="org">African Leadership Accelerator (ALX)</div>
+            <div class="date">2024 – 2025</div>
+          </div>
+          <div class="entry">
+            <div class="title">High School</div>
+            <div class="org">Kabianga School</div>
+            <div class="date">2015 – 2019</div>
+            <div class="desc">KCSE – B-</div>
+          </div>
+        </div>
+        <div class="edu-exp-card">
+          <h3><i class="fas fa-briefcase" style="opacity:0.4;"></i> Experience</h3>
+          <div class="entry">
+            <div class="title">Relationship Officer</div>
+            <div class="org">Marble Capital Solutions</div>
+            <div class="date">Sept 2024 – Nov 2024</div>
+            <div class="desc">Onboarded and managed a portfolio of over 50 clients, guiding them through loan application and repayment processes. Collaborated with credit team to assess risk and ensure compliance.</div>
+          </div>
+          <div class="entry">
+            <div class="title">Direct Sales Representative</div>
+            <div class="org">Boresha SACCO Society Ltd</div>
+            <div class="date">Nov 2025 – Present</div>
+            <div class="desc">Conduct field-based member recruitment and onboarding. Collect, verify, and upload customer data into the SACCO system. Appraise loan applications in line with SACCO policies.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-title">
+        <i class="fas fa-code"></i> Skills
+        <span class="accent-line"></span>
+      </div>
+      <div class="skills-grid">
+        <span class="skill-item"><i class="fas fa-lightbulb"></i> Problem Solving</span>
+        <span class="skill-item"><i class="fas fa-file-excel"></i> Microsoft Excel</span>
+        <span class="skill-item"><i class="fas fa-file-excel"></i> Google Sheets</span>
+        <span class="skill-item"><i class="fas fa-database"></i> SQL</span>
+        <span class="skill-item"><i class="fab fa-python"></i> Python</span>
+        <span class="skill-item"><i class="fas fa-chart-pie"></i> Power BI</span>
+        <span class="skill-item"><i class="fas fa-comments"></i> Communication</span>
+        <span class="skill-item"><i class="fas fa-file-alt"></i> Record Keeping</span>
+        <span class="skill-item"><i class="fas fa-chart-bar"></i> Data Analysis</span>
+        <span class="skill-item"><i class="fas fa-table"></i> Tabulation</span>
+        <span class="skill-item"><i class="fas fa-microsoft"></i> Microsoft Suite</span>
+        <span class="skill-item"><i class="fas fa-robot"></i> AI Tools</span>
+      </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section>
+      <div class="section-title">
+        <i class="fas fa-language"></i> Languages
+        <span class="accent-line"></span>
+      </div>
+      <div class="lang-grid">
+        <div class="lang-item">English <span>Fluent</span></div>
+        <div class="lang-item">Kiswahili <span>Fluent</span></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-title">
+        <i class="fas fa-folder"></i> Projects
+        <span class="accent-line"></span>
+      </div>
+      <div class="project-grid">
+        <!-- Layoffs Data Cleaning -->
+        <div class="project-card">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&auto=format&fit=crop&q=60" alt="Layoffs Data Cleaning" /></div>
+          <div class="content">
+            <h3>Layoffs Data Cleaning <i class="fas fa-broom"></i></h3>
+            <p>MySQL data cleaning: removing duplicates, handling missing values, standardizing text data, ensuring date consistency.</p>
+            <div class="project-tools"><span>MySQL</span><span>ETL</span></div>
+            <div class="card-links">
+              <a href="https://github.com/IRonoCollins/Data-cleaning-with-Mysql/blob/main/SQL%20DATA%20CLEANING%20PROJECT.sql" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DSR Performance -->
+        <div class="project-card">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=60" alt="DSR Performance" /></div>
+          <div class="content">
+            <h3>DSR Performance <i class="fas fa-chart-pie"></i></h3>
+            <p>Direct Sales Representative performance analysis within a SACCO using Power BI. Interactive dashboards.</p>
+            <div class="project-tools"><span>Power BI</span><span>DAX</span></div>
+            <div class="card-links">
+              <a href="https://drive.google.com/file/d/1CUU3lKLtrZ7M40whUcSloNhCeSEQK0b9/view?usp=sharing" target="_blank"><i class="fas fa-external-link-alt"></i> View Dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Layoffs EDA -->
+        <div class="project-card">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=60" alt="Layoffs EDA" /></div>
+          <div class="content">
+            <h3>Layoffs EDA <i class="fas fa-magnifying-glass-chart"></i></h3>
+            <p>SQL-based exploratory data analysis uncovering trends in company layoffs across industries and countries.</p>
+            <div class="project-tools"><span>MySQL</span><span>Analytics</span></div>
+            <div class="card-links">
+              <a href="https://github.com/IRonoCollins/EDA-with-Mysql/blob/main/SQL%20EDA%20PROJECT.sql" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bike Buyers -->
+        <div class="project-card">
+          <div class="img-wrap"><img src="https://i.imgur.com/xD4nFro.jpeg" alt="Bike Buyers" /></div>
+          <div class="content">
+            <h3>Bike Buyers Analysis <i class="fas fa-table"></i></h3>
+            <p>Excel project analyzing customer demographics, income, and commute distance to uncover factors influencing bike purchases.</p>
+            <div class="project-tools"><span>Excel</span><span>Pivot Tables</span></div>
+            <div class="card-links">
+              <a href="https://github.com/IRonoCollins/Excel-Data-Project" target="_blank"><i class="fab fa-github"></i> View Project</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Professional Survey -->
+        <div class="project-card">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=600&auto=format&fit=crop&q=60" alt="Data Professional Survey" /></div>
+          <div class="content">
+            <h3>Data Professional Survey <i class="fas fa-users"></i></h3>
+            <p>Power BI analysis of survey responses from data professionals to uncover career trends, salaries, and satisfaction.</p>
+            <div class="project-tools"><span>Power BI</span><span>Data Viz</span></div>
+            <div class="card-links">
+              <a href="https://drive.google.com/file/d/16zu249mHIZrxLhwQRR9ZmRidLJ3vvGke/view?usp=sharing" target="_blank"><i class="fas fa-external-link-alt"></i> View Dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Airbnb Tableau -->
+        <div class="project-card">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=60" alt="Airbnb" /></div>
+          <div class="content">
+            <h3>Airbnb Analysis <i class="fas fa-city"></i></h3>
+            <p>Tableau dashboard analyzing Airbnb listings, reviews, and availability to uncover pricing and host trends.</p>
+            <div class="project-tools"><span>Tableau</span><span>Storytelling</span></div>
+            <div class="card-links">
+              <a href="https://public.tableau.com/app/profile/collins.rono/viz/AIRBnBtableauproject/Dashboard1?publish=yes" target="_blank"><i class="fas fa-external-link-alt"></i> View Dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Scraping -->
+        <div class="project-card">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=60" alt="Web Scraping" /></div>
+          <div class="content">
+            <h3>Web Scraping <i class="fas fa-spider"></i></h3>
+            <p>Python web scraping using BeautifulSoup to extract company rankings, industries, revenue, and employee counts.</p>
+            <div class="project-tools"><span>Python</span><span>BeautifulSoup</span></div>
+            <div class="card-links">
+              <a href="https://github.com/IRonoCollins/Web_scraping" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pandas EDA -->
+        <div class="project-card">
+          <div class="img-wrap"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=60" alt="Pandas EDA" /></div>
+          <div class="content">
+            <h3>Pandas EDA <i class="fab fa-python"></i></h3>
+            <p>Exploratory data analysis using Python's pandas library with visualizations using Matplotlib and Seaborn.</p>
+            <div class="project-tools"><span>Python</span><span>pandas</span><span>seaborn</span></div>
+            <div class="card-links">
+              <a href="https://github.com/IRonoCollins/Data-cleaning-and-EDA-using-Panda" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <div class="section-title">
+        <i class="fas fa-certificate"></i> Certifications
+        <span class="accent-line"></span>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <i class="fas fa-graduation-cap"></i>
+          <div class="cert-info">
+            <h4>Bachelor of Economics & Statistics</h4>
+            <p>South Eastern Kenya University</p>
+          </div>
+          <a href="https://drive.google.com/file/d/1-qst_gGLaUVIMFJjrQ7g-AEDF2HzERDn/view?usp=sharing" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-certificate"></i>
+          <div class="cert-info">
+            <h4>KCSE Certificate</h4>
+            <p>Kabianga School</p>
+          </div>
+          <a href="https://drive.google.com/file/d/1iZi8bm5m5RFLeBJ-h_sDN55F1BKlr6w3/view?usp=sharing" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-robot"></i>
+          <div class="cert-info">
+            <h4>Data Science Certificate</h4>
+            <p>ALX / African Leadership Accelerator</p>
+          </div>
+          <a href="https://drive.google.com/file/d/1D1mTCVjG0nMaqgj3ozV-EJkegRdtjrzx/view?usp=sharing" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-chart-line"></i>
+          <div class="cert-info">
+            <h4>Data Analytics Bootcamp</h4>
+            <p>Alex The Data Analyst (YouTube)</p>
+          </div>
+          <a href="https://drive.google.com/file/d/1OcW-ueFmmN83yl7m7fpaPt36p2seJ1H0/view?usp=sharing" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+      <div>
+        <h3>Let's connect</h3>
+        <div class="contact-links">
+          <a href="mailto:coloron1999@gmail.com"><i class="fas fa-envelope"></i> coloron1999@gmail.com</a>
+          <a href="tel:+254741867703"><i class="fas fa-phone"></i> +254 741 867 703</a>
+        </div>
+        <div style="margin-top:0.6rem;color:#8b949e;font-size:0.9rem;"><i class="fas fa-map-pin" style="margin-right:0.4rem;"></i> Nairobi, Kenya</div>
+        <div class="social-links" style="margin-top:0.8rem;">
+          <a href="https://www.linkedin.com/in/collins-rono/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/IRonoCollins" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="contact-badge">
+        <i class="fas fa-handshake" style="margin-right:0.6rem;opacity:0.5;"></i> Open to opportunities
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <span>&copy; 2025 Collins Rono</span>
+      <span>Built with <i class="fas fa-heart" style="color:#238636;opacity:0.3;"></i> &amp; data</span>
+    </div>
+
+  </div>
+
+  <script>
+    (function() {
+      // ---- Spotlight follow ----
+      const spotlight = document.getElementById('spotlight');
+      document.addEventListener('mousemove', (e) => {
+        spotlight.style.left = e.clientX + 'px';
+        spotlight.style.top = e.clientY + 'px';
+      });
+
+      // ---- Scroll reveal (light) ----
+      const items = document.querySelectorAll('.project-card, .profile-card, .contact-mini, .edu-exp-card, .skill-item, .lang-item, .cert-card');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.06 });
+      items.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(16px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+
+      // ---- Magnetic buttons (light) ----
+      document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = `translate(${x * 0.06}px, ${y * 0.06}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = 'translate(0,0)';
+        });
+      });
+    })();
+  </script>
+</body>
 </html>
