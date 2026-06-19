@@ -47,11 +47,85 @@
       border-radius: 12px;
     }
 
+    /* ----- ANIMATED GRADIENT BACKGROUND ----- */
+    .gradient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      background: linear-gradient(-45deg, #0d1117, #0d1a2d, #0f1f2a, #0d1117);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ----- GLOWING ORBS ----- */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+      animation: orbFloat 15s ease-in-out infinite alternate;
+    }
+    .orb-1 {
+      width: 400px;
+      height: 400px;
+      background: rgba(35, 134, 54, 0.15);
+      top: -10%;
+      left: -5%;
+      animation-delay: 0s;
+    }
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: rgba(56, 139, 253, 0.1);
+      bottom: -20%;
+      right: -10%;
+      animation-delay: -5s;
+    }
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: rgba(163, 113, 247, 0.1);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: -10s;
+    }
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.1); }
+      66% { transform: translate(-20px, 30px) scale(0.9); }
+      100% { transform: translate(10px, -10px) scale(1.05); }
+    }
+
+    /* ----- PARTICLE CANVAS ----- */
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
     /* ----- CONTAINER ----- */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 1.5rem 2rem 1rem;
+      position: relative;
+      z-index: 2;
     }
 
     /* ----- HERO (centered, with interactive elements) ----- */
@@ -62,12 +136,13 @@
       text-align: center;
       padding: 3rem 0 2.8rem;
       border-radius: 48px;
-      background: linear-gradient(145deg, #161b22, #0d1117);
+      background: rgba(22, 27, 34, 0.6);
+      backdrop-filter: blur(12px);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
       margin-bottom: 1.5rem;
       position: relative;
       overflow: hidden;
-      border: 1px solid #30363d;
+      border: 1px solid rgba(255, 255, 255, 0.05);
       transition: all 0.3s;
     }
     .hero::before {
@@ -77,29 +152,49 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle at 30% 40%, rgba(35, 134, 54, 0.04), transparent 70%);
+      background: radial-gradient(circle at 30% 40%, rgba(35, 134, 54, 0.05), transparent 70%);
       pointer-events: none;
     }
 
-    /* AVATAR WITH WHITE BACKGROUND & GREEN GLOW */
+    /* AVATAR WITH GLOW & TILT */
     .hero-avatar {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       margin-bottom: 1.5rem;
       overflow: hidden;
-      box-shadow: 0 0 30px rgba(35, 134, 54, 0.3), 0 12px 40px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 40px rgba(35, 134, 54, 0.3), 0 12px 40px rgba(0, 0, 0, 0.4);
       border: 4px solid #238636;
       position: relative;
       z-index: 2;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
       background: #ffffff;
       flex-shrink: 0;
+      perspective: 600px;
+      transform-style: preserve-3d;
     }
     .hero-avatar:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 50px rgba(35, 134, 54, 0.5), 0 12px 50px rgba(35, 134, 54, 0.2);
+      transform: scale(1.05) rotateY(5deg) rotateX(5deg);
+      box-shadow: 0 0 60px rgba(35, 134, 54, 0.5), 0 12px 50px rgba(35, 134, 54, 0.2);
       border-color: #2ea043;
+    }
+    .hero-avatar::after {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #238636, #2ea043, #238636, #2ea043, #238636);
+      z-index: -1;
+      opacity: 0.3;
+      animation: rotateGlow 4s linear infinite;
+    }
+    @keyframes rotateGlow {
+      0% { transform: rotate(0deg); opacity: 0.3; }
+      50% { opacity: 0.6; }
+      100% { transform: rotate(360deg); opacity: 0.3; }
     }
     .hero-avatar img {
       width: 100%;
@@ -112,7 +207,10 @@
       font-size: 3.2rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: #f0f6fc;
+      background: linear-gradient(135deg, #f0f6fc 0%, #7aa3ff 40%, #238636 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 0.2rem;
       position: relative;
       z-index: 2;
@@ -126,12 +224,13 @@
       border-radius: 60px;
       display: inline-block;
       margin-bottom: 0.3rem;
-      border: 1px solid #30363d;
+      border: 1px solid rgba(255, 255, 255, 0.05);
       transition: all 0.3s;
     }
     .hero .role:hover {
       border-color: #238636;
       color: #f0f6fc;
+      box-shadow: 0 0 30px rgba(35, 134, 54, 0.1);
     }
     .hero .tagline {
       font-size: 1rem;
@@ -141,7 +240,7 @@
       font-weight: 300;
     }
 
-    /* ----- NAVIGATION SHORTCUTS ----- */
+    /* ----- NAVIGATION SHORTCUTS (colorful) ----- */
     .nav-shortcuts {
       display: flex;
       flex-wrap: wrap;
@@ -157,7 +256,7 @@
       color: #8b949e;
       padding: 0.4rem 1.2rem;
       border-radius: 60px;
-      border: 1px solid #30363d;
+      border: 1px solid rgba(255, 255, 255, 0.05);
       transition: all 0.25s;
       display: inline-flex;
       align-items: center;
@@ -168,7 +267,8 @@
       border-color: #238636;
       color: #f0f6fc;
       transform: translateY(-2px);
-      background: rgba(35, 134, 54, 0.05);
+      background: rgba(35, 134, 54, 0.1);
+      box-shadow: 0 4px 20px rgba(35, 134, 54, 0.1);
     }
     .nav-shortcuts a i {
       font-size: 0.8rem;
@@ -191,32 +291,49 @@
       border-radius: 60px;
       font-weight: 500;
       font-size: 0.95rem;
-      transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       border: 1.5px solid transparent;
+      position: relative;
+      overflow: hidden;
     }
     .btn-primary {
-      background: #238636;
+      background: linear-gradient(135deg, #238636, #1a6b2a);
       color: #fff;
       border-color: #238636;
-      box-shadow: 0 8px 24px rgba(35, 134, 54, 0.2);
+      box-shadow: 0 8px 24px rgba(35, 134, 54, 0.3);
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
     }
     .btn-primary:hover {
-      background: #2ea043;
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 14px 34px rgba(35, 134, 54, 0.3);
+      background: linear-gradient(135deg, #2ea043, #238636);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 14px 34px rgba(35, 134, 54, 0.4);
+    }
+    .btn-primary:hover::before {
+      opacity: 1;
     }
     .btn-outline {
-      border-color: #30363d;
+      border-color: rgba(255, 255, 255, 0.1);
       color: #c9d1d9;
       background: rgba(255, 255, 255, 0.02);
     }
     .btn-outline:hover {
-      border-color: #8b949e;
-      background: rgba(255, 255, 255, 0.05);
+      border-color: #238636;
+      background: rgba(35, 134, 54, 0.05);
       transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(35, 134, 54, 0.1);
     }
 
-    /* Floating tech icons (subtle) */
+    /* Floating tech icons (interactive) */
     .float-icons {
       position: absolute;
       width: 100%;
@@ -241,23 +358,24 @@
       100% { transform: translateY(-18px) rotate(6deg); opacity: 0.5; }
     }
 
-    /* Spotlight effect (mouse follow) */
+    /* Spotlight effect (mouse follow) - enhanced */
     .spotlight {
       position: fixed;
       width: 60vw;
       height: 60vw;
       max-width: 700px;
       max-height: 700px;
-      background: radial-gradient(circle, rgba(35, 134, 54, 0.04) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(35, 134, 54, 0.06) 0%, rgba(56, 139, 253, 0.03) 50%, transparent 80%);
       border-radius: 50%;
       pointer-events: none;
       z-index: 0;
       transform: translate(-50%, -50%);
       transition: opacity 0.3s;
-      opacity: 0.5;
+      opacity: 0.6;
+      mix-blend-mode: screen;
     }
 
-    /* Scroll indicator */
+    /* Scroll indicator - enhanced */
     .scroll-indicator {
       margin-top: 3rem;
       display: flex;
@@ -268,18 +386,38 @@
       font-size: 0.7rem;
       letter-spacing: 0.15em;
       animation: bounce 2s infinite;
+      position: relative;
+      z-index: 2;
     }
     .scroll-indicator .line {
       width: 1px;
       height: 40px;
       background: linear-gradient(to bottom, #238636, transparent);
+      position: relative;
+      overflow: visible;
+    }
+    .scroll-indicator .line::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 10px;
+      background: #238636;
+      border-radius: 4px;
+      animation: scrollGlow 1.5s ease-in-out infinite;
+    }
+    @keyframes scrollGlow {
+      0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 1; transform: translateX(-50%) translateY(8px); }
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(4px); }
     }
 
-    /* ----- SECTION TITLES ----- */
+    /* ----- SECTION TITLES (with color) ----- */
     .section-title {
       font-size: 1.9rem;
       font-weight: 600;
@@ -291,14 +429,14 @@
       gap: 0.8rem;
     }
     .section-title i {
-      color: #8b949e;
+      color: #238636;
       font-size: 1.4rem;
-      opacity: 0.5;
+      opacity: 0.7;
     }
     .section-title .accent-line {
       flex: 1;
       height: 2px;
-      background: linear-gradient(90deg, #30363d, transparent);
+      background: linear-gradient(90deg, #238636, transparent);
       margin-left: 0.5rem;
     }
 
@@ -319,6 +457,7 @@
     .profile-card:hover {
       border-color: #238636;
       transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(35, 134, 54, 0.05);
     }
     .profile-card h3 {
       font-size: 1.1rem;
@@ -755,6 +894,7 @@
       .certs-grid { grid-template-columns: 1fr; }
       .contact-section { flex-direction: column; align-items: flex-start; padding: 2rem; }
       .spotlight { display: none; }
+      .orb { display: none; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 1.9rem; }
@@ -763,6 +903,17 @@
   </style>
 </head>
 <body>
+
+  <!-- Animated Gradient Background -->
+  <div class="gradient-bg"></div>
+
+  <!-- Glowing Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
 
   <!-- Spotlight (mouse follow) -->
   <div class="spotlight" id="spotlight"></div>
@@ -777,7 +928,7 @@
         <i class="fas fa-code"></i>
         <i class="fas fa-brain"></i>
       </div>
-      <div class="hero-avatar">
+      <div class="hero-avatar" id="avatarTilt">
         <img src="https://i.imgur.com/hAuidEA.jpeg" alt="Collins Rono" />
       </div>
       <h1>Collins Rono</h1>
@@ -1085,14 +1236,89 @@
 
   <script>
     (function() {
-      // ---- Spotlight follow ----
+      // ---- PARTICLE SYSTEM ----
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      let w, h;
+
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const particles = [];
+      const count = 60;
+
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          r: 1.5 + Math.random() * 2,
+        });
+      }
+
+      function drawParticles() {
+        ctx.clearRect(0, 0, w, h);
+
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.hypot(dx, dy);
+            if (dist < 150) {
+              const alpha = 0.08 * (1 - dist / 150);
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(35, 134, 54, ${alpha})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Draw particles
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(35, 134, 54, 0.3)';
+          ctx.fill();
+
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
+        });
+
+        requestAnimationFrame(drawParticles);
+      }
+      drawParticles();
+
+      // ---- SPOTLIGHT FOLLOW ----
       const spotlight = document.getElementById('spotlight');
       document.addEventListener('mousemove', (e) => {
         spotlight.style.left = e.clientX + 'px';
         spotlight.style.top = e.clientY + 'px';
       });
 
-      // ---- Scroll reveal (light) ----
+      // ---- AVATAR 3D TILT ----
+      const avatar = document.getElementById('avatarTilt');
+      document.addEventListener('mousemove', (e) => {
+        const rect = avatar.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) / 15;
+        const y = (e.clientY - rect.top - rect.height / 2) / 15;
+        avatar.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+      });
+      document.addEventListener('mouseleave', () => {
+        avatar.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      });
+
+      // ---- SCROLL REVEAL ----
       const items = document.querySelectorAll('.project-card, .profile-card, .contact-mini, .edu-exp-card, .skill-item, .lang-item, .cert-card');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1109,7 +1335,7 @@
         observer.observe(el);
       });
 
-      // ---- Magnetic buttons (light) ----
+      // ---- MAGNETIC BUTTONS ----
       document.querySelectorAll('.btn').forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
           const rect = btn.getBoundingClientRect();
